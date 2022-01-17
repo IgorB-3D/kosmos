@@ -18,6 +18,11 @@ body
 	padding: none;
 }
 
+label
+{
+	text-transform: uppercase;
+}
+
 h1, h2, h3, h4, h5, h6
 {
 	color: var(--color3);
@@ -243,6 +248,12 @@ article::before
 	left: 85px;
 }
 
+article a
+{
+	position: absolute;
+	bottom: 10px;
+}
+
 .preview
 {
 	font-size: 0.8em;
@@ -367,6 +378,11 @@ article::before
 	backdrop-filter: blur(5px);
 }
 
+h3
+{
+	font-size: 0.9em;
+}
+
 .viewer button
 {
 	position: absolute;
@@ -397,7 +413,7 @@ article::before
 nav
 {
 	position: fixed;
-	bottom: 0;
+	top: 0;
 	left: 0;
 	width: 100vw;
 	max-width: 100%;
@@ -408,7 +424,9 @@ nav
 	backdrop-filter: blur(8px);
 	z-index: 5;
 	height: 50px;
-	border-top: 2px solid #ffffff33;
+	border-bottom: 2px solid #ffffff33;
+	overflow-x: auto;
+	overflow-y: hidden;
 }
 
 nav ul
@@ -422,11 +440,44 @@ nav ul
 nav li
 {
 	cursor: pointer;
+	opacity: 0.8;
+	transition: opacity 0.4s;
+}
+
+nav li:hover
+{
+	opacity: 1.0;
 }
 
 .res
 {
 	height: 80px;
+}
+
+.fixed
+{
+	position: fixed;
+}
+
+::-webkit-scrollbar
+{
+	width: 5px;
+}
+
+::-webkit-scrollbar-track 
+{
+	background: var(--color1);
+}
+
+::-webkit-scrollbar-thumb
+{
+	border-radius: 5px;
+	background: var(--color3);
+}
+
+::-webkit-scrollbar-thumb:hover
+{
+	background: var(--color4);
 }
 
 @keyframes in
@@ -529,5 +580,10 @@ nav li
 	article:nth-child(2)
 	{
 		transform: none;
+	}
+
+	article a
+	{
+		position: initial;
 	}
 }

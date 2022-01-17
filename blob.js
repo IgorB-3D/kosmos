@@ -28,6 +28,12 @@ document.addEventListener('mousemove', (e) => {
 			dfy *= 0.5
 		}
 
+		if(window.innerWidth <= 1000)
+		{
+			dfx = 0
+			dfy = 0
+		}
+
 		blob.style.transform = `translate(${dfx}px, ${dfy}px)`
 	})
 })
