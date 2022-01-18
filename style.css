@@ -26,7 +26,7 @@ body {
     font-size: 26px;
     color: #fff;
     margin: 0;
-    padding: none
+    padding: none;
 }
 
 label {
@@ -37,8 +37,9 @@ h1,h2,h3,h4,h5,h6 {
     color: var(--color3)
 }
 
-form,form>input,textarea {
-    width: 100%
+form, form > input, textarea {
+    width: 100%;
+	box-sizing: border-box;
 }
 
 form {
@@ -106,7 +107,7 @@ hr {
 }
 
 .contentblock {
-    max-width: max(50%,1000px)
+    max-width: min(max(50%, 1000px), 100%)
 }
 
 .bannerBg {
@@ -163,7 +164,8 @@ hr {
 }
 
 .path {
-    width: 800px
+    width: 800px;
+	max-width: 100%;
 }
 
 canvas {
@@ -375,11 +377,15 @@ h3 {
     width: 80%
 }
 
-nav,nav ul {
-    display: flex
+nav ul {
+    display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100%;
+	margin: 0;
 }
 
-.viewer,nav {
+.viewer, nav {
     top: 0;
     left: 0;
     width: 100vw;
@@ -394,8 +400,7 @@ nav {
     z-index: 5;
     height: 50px;
     border-bottom: 2px solid #ffffff33;
-    overflow-x: auto;
-    overflow-y: hidden
+    overflow: hidden;
 }
 
 nav ul {
@@ -490,7 +495,9 @@ nav li:hover {
     }
 
     article {
+		box-sizing: border-box;
         padding: 15px;
+		width: 100%;
         height: auto
     }
 
@@ -501,4 +508,29 @@ nav li:hover {
     article a {
         position: initial
     }
+	
+	nav, nav ul {
+		justify-content: flex-start;
+	}
+
+	nav::before, nav::after {
+		content: " ";
+		display: block;
+		width: 10%;
+		height: 100%;
+		position: absolute;
+		z-index: 1;
+		top: 0;
+		filter: brightness(0.7);
+	}
+
+
+	nav::before {
+		background: linear-gradient(90deg, var(--color1), #1B192400);
+	}
+
+	nav::after {
+		background: linear-gradient(-90deg, var(--color1), #1B192400);
+		right: 0;
+	}
 }
