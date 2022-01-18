@@ -48,7 +48,7 @@ ararr.forEach(a => {
 		figure.style.display = 'none'
 		twrap.style.display = 'block'
 		header.innerText = a.parentNode.children[0].innerText
-		text.innerText = a.parentNode.children[1].innerText
+		text.innerHTML = a.parentNode.children[1].innerHTML
 	})
 });
 
