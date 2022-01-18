@@ -1,9 +1,10 @@
 const navItems = document.querySelectorAll('nav > ul > li')
 const pages = document.querySelectorAll('.pg')
+const ha = document.querySelector('header a')
 
-for(let i = 0; i < navItems.length; i++)
+function mkNav(el, i)
 {
-	navItems[i].addEventListener('click', () => {
+	el.addEventListener('click', () => {
 		pages[i].scrollIntoView({
 			behavior: "smooth",
 			block: "start",
@@ -11,3 +12,8 @@ for(let i = 0; i < navItems.length; i++)
 		})
 	})
 }
+
+for(let i = 0; i < navItems.length; i++)
+	mkNav(navItems[i], i)
+
+mkNav(ha, 1)
